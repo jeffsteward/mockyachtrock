@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Right down the line</title>
+
+<style>
+	html, body {
+		margin: 0px;
+		padding: 0px;
+		height: 100%;
+	}
+
+	#catclick {
+		width:100%;
+		height:100%;
+		position:absolute;
+		z-index:99999;
+		cursor:url('img/cursors/2.gif'),auto;
+	}
+
+	#catport, #catloader, #catfutures {
+		background-repeat:repeat;
+		overflow: hidden;
+		width:100%;
+		height:100%;
+		position:absolute;
+	}
+
+	#catport {
+		background-image:url('img/cats/1.gif');
+	}
+
+	#catloader {
+		background-image:url('img/cats/2.gif');
+		display: none;
+	}
+
+	#catfutures {
+		background-image:url('img/cats/3.gif');
+		display: none;
+	}
+</style>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var catNo = 3;
+
+		$('#catclick').click(function() {
+			$('#catport').css("background-image", $('#catloader').css('background-image'));
+			$('#catloader').css("background-image", $('#catfutures').css('background-image'));
+
+			catNo+=1;
+			if (catNo>48) {catNo=1;}
+			$('#catfutures').css("background-image", "url(img/cats/" + catNo + ".gif)");
+		});
+	});
+</script>
+
+
+</head>
+<body>
+
+<div id="catclick"></div>
+<div id="catport"></div>
+<div id="catloader"></div>
+<div id="catfutures"></div>
+
+</body>
+</html>
