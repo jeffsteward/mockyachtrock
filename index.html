@@ -41,23 +41,25 @@
 	}
 </style>
 
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
 <script type="text/javascript">
-	$(document).ready(function() {
-		var catNo = 3;
+	document.addEventListener('DOMContentLoaded', () => {
+		let catNo = 3;
+	
+		let catClicker = document.getElementById('catclick');
+		let catPort = document.getElementById('catport');
+		let catLoader = document.getElementById('catloader');
+		let catFutures = document.getElementById('catfutures');
 
-		$('#catclick').click(function() {
-			$('#catport').css("background-image", $('#catloader').css('background-image'));
-			$('#catloader').css("background-image", $('#catfutures').css('background-image'));
+		catClicker.onclick = (e) => {
+			catPort.style.backgroundImage = catLoader.style.backgroundImage;
+			catLoader.style.backgroundImage = catFutures.style.backgroundImage;
 
 			catNo+=1;
 			if (catNo>48) {catNo=1;}
-			$('#catfutures').css("background-image", "url(img/cats/" + catNo + ".gif)");
-		});
+			catFutures.style.backgroundImage = `url(img/cats/${catNo}.gif)`;
+		};
 	});
 </script>
-
 
 </head>
 <body>
