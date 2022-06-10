@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Right down the line</title>
+<link rel="icon" href="/img/cursors/2.gif" type="image/gif">
 
 <style>
 	html, body {
@@ -26,29 +27,36 @@
 		position:absolute;
 	}
 
-	#catport {
-		background-image:url('img/cats/1.gif');
-	}
-
 	#catloader {
-		background-image:url('img/cats/2.gif');
 		display: none;
 	}
 
 	#catfutures {
-		background-image:url('img/cats/3.gif');
 		display: none;
 	}
 </style>
 
+</head>
+<body>
+
+<div id="catclick"></div>
+<div id="catport"></div>
+<div id="catloader"></div>
+<div id="catfutures"></div>
+
+
 <script type="text/javascript">
+	let catClicker = document.getElementById('catclick');
+	let catPort = document.getElementById('catport');
+	let catLoader = document.getElementById('catloader');
+	let catFutures = document.getElementById('catfutures');
+
 	document.addEventListener('DOMContentLoaded', () => {
 		let catNo = 3;
-	
-		let catClicker = document.getElementById('catclick');
-		let catPort = document.getElementById('catport');
-		let catLoader = document.getElementById('catloader');
-		let catFutures = document.getElementById('catfutures');
+
+		catPort.style.backgroundImage = `url(img/cats/1.gif)`;
+		catLoader.style.backgroundImage = `url(img/cats/2.gif)`;
+		catFutures.style.backgroundImage = `url(img/cats/3.gif)`;
 
 		catClicker.onclick = (e) => {
 			catPort.style.backgroundImage = catLoader.style.backgroundImage;
@@ -60,14 +68,6 @@
 		};
 	});
 </script>
-
-</head>
-<body>
-
-<div id="catclick"></div>
-<div id="catport"></div>
-<div id="catloader"></div>
-<div id="catfutures"></div>
 
 </body>
 </html>
